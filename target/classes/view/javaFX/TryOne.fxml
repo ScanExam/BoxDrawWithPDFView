@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.javaFX.Main">
+   <children>
+      <MenuBar VBox.vgrow="ALWAYS">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#save" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
+                  <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
+                  <MenuItem mnemonicParsing="false" onAction="#addFile" text="Ajouter un fichier" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+               <items>
+              <MenuItem mnemonicParsing="false" onAction="#clear" text="Clear" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="T fou mdr" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0">
+         <items>
+          <AnchorPane fx:id="drawPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" onMouseDragged="#dragging" onMousePressed="#startDragging" onMouseReleased="#endDragging" onScroll="#Zoom" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: beige;">
+               <children>
+                  <ImageView fx:id="imagePDF" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ComboBox fx:id="chooseSourceFile" layoutX="14.0" layoutY="14.0" onAction="#chooseSrcEvent" prefHeight="25.0" prefWidth="356.0" promptText="Fichier PDF" />
+                  <ComboBox fx:id="choosePage" layoutX="14.0" layoutY="75.0" onAction="#showPageEvent" prefHeight="25.0" prefWidth="356.0" promptText="Page" />
+               </children></Pane>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>
